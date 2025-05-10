@@ -1,0 +1,256 @@
+@media screen and (orientation: portrait) {
+
+    #gameContainer,
+    #gameFrame {
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        position: relative;
+        z-index: 2;
+    }
+
+    #topContent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0 0 0 0;
+        background-color: #000000;
+        height: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        z-index: 1;
+        /* Set z-index to make it lower */
+    }
+
+    #topTextWrapper {
+        /* background-color: white; White background */
+        background: linear-gradient(to bottom, #c83ac1, #4c4cd2);
+        /* Gradient background */
+        padding: 0px;
+        width: 100%;
+        /* border-radius: 5px; Rounded corners */
+    }
+
+    #topText {
+        color: #ffffff;
+        /* Reddish text color */
+        font-size: 12px;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        margin: 0;
+        padding: 0;
+        /* background-image: url('BackGround.png'); */
+        background-color: #000000;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #gameContainer {
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        position: relative;
+    }
+
+    #gameFrame {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: #000000;
+        transition: opacity 2s;
+        position: relative;
+        z-index: 2;
+    }
+
+    #topContent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        margin: -6px 0 0 0;
+        height: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        /* Set z-index to make it lower */
+    }
+
+    #topTextWrapper {
+        /* background-color: white; White background */
+        background: linear-gradient(to bottom, #c83ac1, #4c4cd2);
+        /* Gradient background */
+        padding: 20px;
+        width: 100%;
+        /* border-radius: 5px; Rounded corners */
+    }
+
+    #topText {
+        color: #ffffff;
+        /* Reddish text color */
+        font-size: 12px;
+    }
+}
+
+#splashScreen {
+    transition: opacity 2s;
+    /* Smooth transition for the splash screen */
+    opacity: 1;
+    /* Start fully visible */
+}
+
+#splashIcon {
+    text-align: center;
+    /* Center the icon horizontally */
+}
+
+#splashIcon img {
+    width: 60%;
+    /* Set the desired width */
+    height: 60%;
+    /* Set the desired height */
+}
+
+
+html {
+  -ms-touch-action: none;
+}
+
+body,
+canvas,
+div {
+  display: block;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Remove spin of input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+
+  cursor: default;
+  color: #888;
+  background-color: #333;
+
+  text-align: center;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+}
+
+canvas {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#GameDiv,
+#Cocos3dGameContainer,
+#GameCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+#splash {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#swipe {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(Plugin/en_swipe.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000000;
+  z-index: 1000;
+  background-size: contain;
+  opacity: .95;
+  overflow: hidden;
+}
+
+#orientation {
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(Plugin/en_orientation.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
+  z-index: 1000;
+  background-size: contain;
+  visibility: hidden;
+  opacity: .95;
+}
+
+
+.mask {
+  height: 150vh;
+  width: 100vw;
+  z-index: 20;
+  display: none;
+  position: absolute;
+  top: 0%;
+}
+
+.absvh {
+  position: absolute;
+  height: 100vh;
+}
+
+.fullscreen-instructions-swipe {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  top: 75vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  animation-duration: 2s;
+  animation-name: fullscreen-swipe;
+  animation-iteration-count: infinite
+}
