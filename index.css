@@ -254,3 +254,18 @@ canvas {
   animation-name: fullscreen-swipe;
   animation-iteration-count: infinite
 }
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Hides scrollbars */
+  height: 100%;
+  width: 100%;
+}
+
+/* #gameFrame {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+} */

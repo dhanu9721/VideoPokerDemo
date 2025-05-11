@@ -413,7 +413,11 @@ function checkScroll() {
 
 function makeScreenInOtherDevices() {
   // console.log("makeScreenInOtherDevices ", document.fullscreenEnabled);
+  // const container = document.getElementById("gameContainer");
   if (!document.fullscreenElement) {
+    // container.requestFullscreen().catch((err) => {
+    //   console.error(`Error attempting to enable fullscreen: ${err.message}`);
+    // });
     document.documentElement.requestFullscreen();
     hideSwipeGIF();
     isAllowShowSwipe = false;
@@ -609,3 +613,44 @@ customEventHandler(orientationDetail);
 // checkOrientationInitially();
 
 encryptedData = this.sessionStorage.getItem("NmLNcb8GiFTPl1xLCd0PxA==");
+
+/**For Desktop */
+
+function isDesktop() {
+  const ua = navigator.userAgent.toLowerCase();
+  return !/android|iphone|ipad|ipod|windows phone|mobile/i.test(ua);
+}
+
+// Show fullscreen button only on desktop
+if (isDesktop()) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("fullscreenBtn");
+    const container = document.getElementById("gameContainer");
+
+    btn.style.display = "block"; // Show button
+
+    btn.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        // container.requestFullscreen().catch((err) => {
+        //   console.error(
+        //     `Error attempting to enable fullscreen: ${err.message}`
+        //   );
+        // });
+        document.documentElement.requestFullscreen();
+        btn.textContent = "🡼";
+      } else {
+        document.exitFullscreen();
+        btn.textContent = "⛶";
+      }
+    });
+
+    // Update button text on fullscreen change
+    document.addEventListener("fullscreenchange", () => {
+      if (!document.fullscreenElement) {
+        btn.textContent = "⛶";
+      } else {
+        btn.textContent = "🡼";
+      }
+    });
+  });
+}
